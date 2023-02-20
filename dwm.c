@@ -466,7 +466,7 @@ buttonpress(XEvent *e)
 	}
 	if (ev->window == selmon->barwin) {
 		i = x = 0;
-		x += blw;
+		x += TEXTW(m->ltsymbol);
 		if (ev->x < x) {
 			click = ClkLtSymbol;
 		} else {
