@@ -56,6 +56,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
         { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
         { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -72,17 +73,17 @@ static const char *termcmd[]  = { "st -d /home/bari/HWD", NULL };
 static const Key keys[] = {
   /* modifier                     key                function        argument */
 //{ MODKEY,                       XK_p,              spawn,          {.v = dmenucmd } },
-  { Mod1Mask,                     XK_Return,         spawn,          {.v = termcmd } },
-  { MODKEY,                       XK_b,              togglebar,      {0} },
-  { MODKEY,                       XK_n,              focusstack,     {.i = +1 } },
-  { MODKEY,                       XK_t,              focusstack,     {.i = -1 } },
+  { ALTKEY,                       XK_Return,         spawn,          {.v = termcmd } },
+  { MODKEY,                       XK_b,              togglebar,      {0} }, // Show or Hide bar
+  { MODKEY,                       XK_n,              focusstack,     {.i = +1 } }, // Focus Window
+  { MODKEY,                       XK_t,              focusstack,     {.i = -1 } }, // Focus Window
   { MODKEY|ControlMask,           XK_o,              incnmaster,     {.i = +1 } },
   { MODKEY|ControlMask,           XK_e,              incnmaster,     {.i = -1 } },
-  { MODKEY|ControlMask,           XK_s,              setmfact,       {.f = -0.05} },
-  { MODKEY|ControlMask,           XK_h,              setmfact,       {.f = +0.05} },
+  { MODKEY|ControlMask,           XK_s,              setmfact,       {.f = -0.05} }, // Increase or Decrease Master Area Size
+  { MODKEY|ControlMask,           XK_h,              setmfact,       {.f = +0.05} }, // Increase or Decrease Master Area Size
   { MODKEY,                       XK_Return,         zoom,           {0} },
   { MODKEY,                       XK_Tab,            view,           {0} },
-  { MODKEY|ShiftMask,             XK_c,              killclient,     {0} },
+  { MODKEY|ShiftMask,             XK_c,              killclient,     {0} }, // Kill a window
   { MODKEY,                       XK_apostrophe,     setlayout,      {.v = &layouts[0]} }, // Sets layout to the first element
   { MODKEY,                       XK_comma,          setlayout,      {.v = &layouts[1]} }, // Sets layout to the second element
   { MODKEY,                       XK_period,         setlayout,      {.v = &layouts[2]} }, // Sets layout to the third element
@@ -92,8 +93,8 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_space,          togglefloating, {0} }, // Toggles floating
   { MODKEY,                       XK_0,              view,           {.ui = ~0 } },
   { MODKEY|ShiftMask,             XK_0,              tag,            {.ui = ~0 } },
-  { MODKEY,                       XK_comma,          focusmon,       {.i = -1 } },
-  { MODKEY,                       XK_period,         focusmon,       {.i = +1 } },
+  { MODKEY|ControlMask,           XK_comma,          focusmon,       {.i = -1 } },
+  { MODKEY|ControlMask,           XK_period,         focusmon,       {.i = +1 } },
   { MODKEY|ShiftMask,             XK_comma,          tagmon,         {.i = -1 } },
   { MODKEY|ShiftMask,             XK_period,         tagmon,         {.i = +1 } },
   { MODKEY,                       XK_s,              viewnext,       {0} }, // Next tag that is not vacant
