@@ -1332,23 +1332,7 @@ unsigned int
 nexttag(void)
 {
 	unsigned int seltag = selmon->tagset[selmon->seltags];
-	unsigned int usedtags = 0;
-	Client *c = selmon->clients;
-
-	if (!c)
-		return seltag;
-
-	/* skip vacant tags */
-	do {
-		usedtags |= c->tags;
-		c = c->next;
-	} while (c);
-
-	do {
-		seltag = seltag == (1 << (LENGTH(tags) - 1)) ? 1 : seltag << 1;
-	} while (!(seltag & usedtags));
-
-	return seltag;
+	return seltag == (1 << (LENGTH(tags) - 1)) ? 1 : seltag << 1;
 }
 
 Client *
@@ -1371,22 +1355,7 @@ unsigned int
 prevtag(void)
 {
 	unsigned int seltag = selmon->tagset[selmon->seltags];
-	unsigned int usedtags = 0;
-	Client *c = selmon->clients;
-	if (!c)
-		return seltag;
-
-	/* skip vacant tags */
-	do {
-		usedtags |= c->tags;
-		c = c->next;
-	} while (c);
-
-	do {
-		seltag = seltag == 1 ? (1 << (LENGTH(tags) - 1)) : seltag >> 1;
-	} while (!(seltag & usedtags));
-
-	return seltag;
+	return seltag == 1 ? (1 << (LENGTH(tags) - 1)) : seltag >> 1;
 }
 
 void
@@ -1919,9 +1888,7 @@ tagtonext(const Arg *arg)
 	if (selmon->sel == NULL)
 		return;
 
-	if ((tmp = nexttag()) == selmon->tagset[selmon->seltags])
-		return;
-
+	tmp = nexttag();
 	tag(&(const Arg){.ui = tmp });
 	view(&(const Arg){.ui = tmp });
 }
@@ -1934,9 +1901,7 @@ tagtoprev(const Arg *arg)
 	if (selmon->sel == NULL)
 		return;
 
-	if ((tmp = prevtag()) == selmon->tagset[selmon->seltags])
-		return;
-
+	tmp = prevtag();
 	tag(&(const Arg){.ui = tmp });
 	view(&(const Arg){.ui = tmp });
 }

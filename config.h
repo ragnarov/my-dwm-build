@@ -96,10 +96,10 @@ static const Key keys[] = {
   { MODKEY,                       XK_period,         focusmon,       {.i = +1 } },
   { MODKEY|ShiftMask,             XK_comma,          tagmon,         {.i = -1 } },
   { MODKEY|ShiftMask,             XK_period,         tagmon,         {.i = +1 } },
-  { MODKEY,                       XK_s,              viewnext,       {0} }, // Next tag
-  { MODKEY,                       XK_h,              viewprev,       {0} }, // Prev tag
-  { MODKEY|ShiftMask,             XK_s,              tagtonext,      {0} }, // Next tag that is not vacant
-  { MODKEY|ShiftMask,             XK_h,              tagtoprev,      {0} }, // Prev tag that is not vacant
+  { MODKEY,                       XK_s,              viewnext,       {0} }, // Next tag that is not vacant
+  { MODKEY,                       XK_h,              viewprev,       {0} }, // Prev tag that is not vacant
+  { MODKEY|ShiftMask,             XK_s,              tagtonext,      {0} }, // Move to Next tag
+  { MODKEY|ShiftMask,             XK_h,              tagtoprev,      {0} }, // Move to Prev tag
   { MODKEY|ShiftMask,             XK_q,              quit,           {0} }, // Quit DWM
   TAGKEYS(                        XK_1,                              0)
   TAGKEYS(                        XK_2,                              1)
