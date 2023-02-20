@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "fibonacci.h"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -43,7 +45,6 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
-#include "fibonacci.c"
 static const Layout layouts[] = {
         /* symbol     arrange function */
         { "[]=",      tile },    /* first entry is default */
