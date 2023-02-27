@@ -75,8 +75,8 @@ static const Key keys[] = {
 //{ MODKEY,                       XK_p,              spawn,          {.v = dmenucmd } },
   { ALTKEY,                       XK_Return,         spawn,          {.v = termcmd } },
   { MODKEY,                       XK_b,              togglebar,      {0} }, // Show or Hide bar
-  { MODKEY,                       XK_n,              focusstack,     {.i = +1 } }, // Focus Window
-  { MODKEY,                       XK_t,              focusstack,     {.i = -1 } }, // Focus Window
+  { MODKEY|ShiftMask,             XK_n,              focusstack,     {.i = +1 } }, // Focus Window
+  { MODKEY|ShiftMask,             XK_t,              focusstack,     {.i = -1 } }, // Focus Window
   { MODKEY|ControlMask,           XK_o,              incnmaster,     {.i = +1 } },
   { MODKEY|ControlMask,           XK_e,              incnmaster,     {.i = -1 } },
   { MODKEY|ControlMask,           XK_t,              setmfact,       {.f = -0.05} }, // Increase or Decrease Master Area Size
@@ -97,8 +97,8 @@ static const Key keys[] = {
   { MODKEY|ControlMask,           XK_period,         focusmon,       {.i = +1 } },
   { MODKEY|ShiftMask,             XK_comma,          tagmon,         {.i = -1 } },
   { MODKEY|ShiftMask,             XK_period,         tagmon,         {.i = +1 } },
-  { MODKEY|ShiftMask,             XK_s,              viewnext,       {0} }, // Next tag that is not vacant
-  { MODKEY|ShiftMask,             XK_h,              viewprev,       {0} }, // Prev tag that is not vacant
+  { MODKEY|ShiftMask,             XK_s,              viewnext,       {0} }, // Next tag
+  { MODKEY|ShiftMask,             XK_h,              viewprev,       {0} }, // Prev tag
   { MODKEY|ControlMask,           XK_s,              tagtonext,      {0} }, // Move to Next tag
   { MODKEY|ControlMask,           XK_h,              tagtoprev,      {0} }, // Move to Prev tag
   { MODKEY|ShiftMask,             XK_q,              quit,           {0} }, // Quit DWM
