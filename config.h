@@ -45,7 +45,8 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -60,44 +61,44 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_Right,  viewnext,       {0} },
-	{ MODKEY,                       XK_Left,   viewprev,       {0} },
-	{ MODKEY|ShiftMask,             XK_Right,  tagtonext,      {0} },
-	{ MODKEY|ShiftMask,             XK_Left,   tagtoprev,      {0} },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  /* modifier             key             function        argument */
+//{ MODKEY,               XK_p,           spawn,          {.v = dmenucmd } },
+  { ALTKEY,               XK_Return,      spawn,          SHCMD("st -d ~/HWD") },
+  { MODKEY,               XK_b,           togglebar,      {0} }, // Show or Hide bar
+  { MODKEY|ShiftMask,     XK_n,           focusstack,     {.i = +1 } }, // Focus Window
+  { MODKEY|ShiftMask,     XK_t,           focusstack,     {.i = -1 } }, // Focus Window
+  { MODKEY|ControlMask,   XK_o,           incnmaster,     {.i = +1 } },
+  { MODKEY|ControlMask,   XK_e,           incnmaster,     {.i = -1 } },
+  { MODKEY|ControlMask,   XK_t,           setmfact,       {.f = -0.05} }, // Increase or Decrease Master Area Size
+  { MODKEY|ControlMask,   XK_n,           setmfact,       {.f = +0.05} }, // Increase or Decrease Master Area Size
+  { MODKEY,               XK_Return,      zoom,           {0} },
+  { MODKEY,               XK_Tab,         view,           {0} },
+  { MODKEY|ShiftMask,     XK_c,           killclient,     {0} }, // Kill a window
+  { MODKEY,               XK_apostrophe,  setlayout,      {.v = &layouts[0]} }, // Sets layout to the first element
+  { MODKEY,               XK_comma,       setlayout,      {.v = &layouts[1]} }, // Sets layout to the second element
+  { MODKEY,               XK_period,      setlayout,      {.v = &layouts[2]} }, // Sets layout to the third element
+  { MODKEY,               XK_space,       setlayout,      {0} }, // Sets layout to the first element
+  { MODKEY|ShiftMask,     XK_space,       togglefloating, {0} }, // Toggles floating
+  { MODKEY,               XK_0,           view,           {.ui = ~0 } },
+  { MODKEY|ShiftMask,     XK_0,           tag,            {.ui = ~0 } },
+  { MODKEY|ControlMask,   XK_comma,       focusmon,       {.i = -1 } },
+  { MODKEY|ControlMask,   XK_period,      focusmon,       {.i = +1 } },
+  { MODKEY|ShiftMask,     XK_comma,       tagmon,         {.i = -1 } },
+  { MODKEY|ShiftMask,     XK_period,      tagmon,         {.i = +1 } },
+  { MODKEY|ShiftMask,     XK_s,           viewnext,       {0} }, // Next tag
+  { MODKEY|ShiftMask,     XK_h,           viewprev,       {0} }, // Prev tag
+  { MODKEY|ControlMask,   XK_s,           tagtonext,      {0} }, // Move to Next tag
+  { MODKEY|ControlMask,   XK_h,           tagtoprev,      {0} }, // Move to Prev tag
+  { MODKEY|ShiftMask,     XK_q,           quit,           {0} }, // Quit DWM
+  TAGKEYS(                XK_1,                   0)
+  TAGKEYS(                XK_2,                   1)
+  TAGKEYS(                XK_3,                   2)
+  TAGKEYS(                XK_4,                   3)
+  TAGKEYS(                XK_5,                   4)
+  TAGKEYS(                XK_6,                   5)
+  TAGKEYS(                XK_7,                   6)
+  TAGKEYS(                XK_8,                   7)
+  TAGKEYS(                XK_9,                   8)
 };
 
 /* button definitions */
