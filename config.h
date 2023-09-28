@@ -26,9 +26,47 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class                instance    title           tags mask     isfloating   monitor */
+        // tag 1
+        // browsers
+	/* class                instance    title           tags mask     isfloating   monitor */
+	{ "Firefox",            NULL,       NULL,           0,            0,           -1 },
+	{ "Firefox-esr",        NULL,       NULL,           0,            0,           -1 },
+	{ "Tor Browser",        NULL,       NULL,           0,            0,           -1 },
+	{  NULL,                NULL,       "Chromium",     0,            0,           -1 },
+	{  NULL,                NULL,       "Tor Browser",  0,            0,           -1 },
+        // tag 2
+        // terminals
+	{ "st-256color",        NULL,       NULL,           1 << 1,       0,           -1 },
+	{ "URxvt",              NULL,       NULL,           1 << 1,       0,           -1 },
+        // tag 3
+        // documents
+	{ "Zathura",            NULL,       NULL,           1 << 2,       0,           -1 },
+	{ "org.pwmt.zathura",   NULL,       NULL,           1 << 2,       0,           -1 },
+	{  NULL,    "tabbed-zathura",       NULL,           1 << 2,       0,           -1 },
+	{ "okular",             NULL,       NULL,           1 << 2,       0,           -1 },
+        // tag 4
+        // library
+	{ "calibre",            NULL,       NULL,           1 << 3,       0,           -1 },
+        // tag 5
+        // multimedio
+	{ "mpv",                NULL,       NULL,           1 << 4,       0,           -1 },
+	{  NULL,                NULL,       "VLC media player",
+                                                            1 << 4,       0,           -1 },
+	{  NULL,                NULL,       "SMPlayer",     1 << 4,       0,           -1 },
+        // tag 6
+        // filemanager
+	{ "Pcmanfm",            NULL,       NULL,           1 << 5,       0,           -1 },
+        // tag 7
+        // miscellaneous
+	{ "KeePassXC",          NULL,       NULL,           1 << 6,       0,           -1 },
+        // tag 8
+        // control
+	{ "Pavucontrol",        NULL,       NULL,           1 << 7,       0,           -1 },
+        // tag 9
+        // im
+	{ "discord",            NULL,       NULL,           1 << 8,       0,           -1 },
+	{ "KotatogramDesktop",  NULL,       NULL,           1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -57,7 +95,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
