@@ -30,11 +30,11 @@ static const Rule rules[] = {
         // tag 1
         // browsers
 	/* class                instance    title           tags mask     isfloating   monitor */
-	{ "Firefox",            NULL,       NULL,           0,            0,           -1 },
-	{ "Firefox-esr",        NULL,       NULL,           0,            0,           -1 },
-	{ "Tor Browser",        NULL,       NULL,           0,            0,           -1 },
-	{  NULL,                NULL,       "Chromium",     0,            0,           -1 },
-	{  NULL,                NULL,       "Tor Browser",  0,            0,           -1 },
+	{ "Firefox",            NULL,       NULL,           1,            0,           -1 },
+	{ "Firefox-esr",        NULL,       NULL,           1,            0,           -1 },
+	{ "Tor Browser",        NULL,       NULL,           1,            0,           -1 },
+	{  NULL,                NULL,       "Chromium",     1,            0,           -1 },
+	{  NULL,                NULL,       "Tor Browser",  1,            0,           -1 },
         // tag 2
         // terminals
 	{ "st-256color",        NULL,       NULL,           1 << 1,       0,           -1 },
@@ -84,7 +84,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-#define ALTKEY Mod1Mask
+//#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -101,7 +101,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
   /* modifier             key             function        argument */
 //{ MODKEY,               XK_p,           spawn,          {.v = dmenucmd } },
-  { ALTKEY,               XK_Return,      spawn,          SHCMD("st -d ~/HWD") },
+  { MODKEY,               XK_Return,      spawn,          SHCMD("st -d ~/HWD") },
   { MODKEY,               XK_b,           togglebar,      {0} }, // Show or Hide bar
   { MODKEY|ShiftMask,     XK_n,           focusstack,     {.i = +1 } }, // Focus Window
   { MODKEY|ShiftMask,     XK_t,           focusstack,     {.i = -1 } }, // Focus Window
