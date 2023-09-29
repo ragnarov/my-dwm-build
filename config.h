@@ -73,7 +73,7 @@ static const Rule rules[] = {
 	{ "discord",            NULL,       NULL,           1 << 8,       0,           -1 },
 	{ "KotatogramDesktop",  NULL,       NULL,           1 << 8,       0,           -1 },
         // any tag
-	{  NULL,              "cmst",       NULL,           1 << 2,       1,           -1 },
+	{  NULL,              "cmst",       NULL,                0,       1,           -1 },
 };
 
 /* layout(s) */
