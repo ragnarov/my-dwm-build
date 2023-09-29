@@ -134,7 +134,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,     XK_h,           viewprev,       {0} }, // Prev tag
   { MODKEY|ControlMask,   XK_s,           tagtonext,      {0} }, // Move to Next tag
   { MODKEY|ControlMask,   XK_h,           tagtoprev,      {0} }, // Move to Prev tag
-  { ControlMask|ShiftMask,
+  { MODKEY|ShiftMask,
                           XK_Delete,      quit,           {0} }, // Quit DWM
   TAGKEYS(                XK_1,                   0)
   TAGKEYS(                XK_2,                   1)
