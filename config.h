@@ -62,8 +62,11 @@ static const Rule rules[] = {
         // tag 6
         // filemanager
 	{ "Pcmanfm",            NULL,       NULL,           1 << 5,       0,           -1 },
+	{ "Spacefm",            NULL,       NULL,           1 << 5,       0,           -1 },
+	{ "Thunar",             NULL,       NULL,           1 << 5,       0,           -1 },
         // tag 7
         // miscellaneous
+	{ "jupyterlab-desktop", NULL,       NULL,           1 << 6,       0,           -1 },
 	{ "KeePassXC",          NULL,       NULL,           1 << 6,       0,           -1 },
         // tag 8
         // control
