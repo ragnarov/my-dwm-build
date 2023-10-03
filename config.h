@@ -36,6 +36,8 @@ static const Rule rules[] = {
         // browsers
 	/* class                instance    title           tags mask     isfloating   monitor */
 	{ "Firefox",            NULL,       NULL,           1,            0,           -1 },
+	{ "firefox",            NULL,       NULL,           1,            0,           -1 },
+	{  NULL,         "Navigator",       NULL,           1,            0,           -1 },
 	{ "Firefox-esr",        NULL,       NULL,           1,            0,           -1 },
 	{ "Tor Browser",        NULL,       NULL,           1,            0,           -1 },
 	{  NULL,                NULL,       "Chromium",     1,            0,           -1 },
