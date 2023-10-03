@@ -52,6 +52,8 @@ static const Rule rules[] = {
 	{ "okular",             NULL,       NULL,           1 << 2,       0,           -1 },
         // tag 4
         // library
+	{ "Zeal",               NULL,       NULL,           1 << 3,       0,           -1 },
+	{  NULL,              "zeal",       NULL,           1 << 3,       0,           -1 },
 	{ "calibre",            NULL,       NULL,           1 << 3,       0,           -1 },
         // tag 5
         // multimedia
