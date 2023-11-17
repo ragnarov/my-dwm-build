@@ -81,6 +81,9 @@ static const Rule rules[] = {
 	{ "KotatogramDesktop",  NULL,       NULL,           1 << 8,       0,           -1 },
 	{ "revolt-desktop",     NULL,       NULL,           1 << 8,       0,           -1 },
 	{  NULL,    "revolt-desktop",       NULL,           1 << 8,       0,           -1 },
+	{  NULL,         "zoom.real",       NULL,           1 << 8,       0,           -1 },
+	{ "zoom",               NULL,       NULL,           1 << 8,       0,           -1 },
+
         // any tag
 	{  NULL,              "cmst",       NULL,                0,       1,           -1 },
 };
